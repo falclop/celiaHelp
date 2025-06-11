@@ -244,10 +244,58 @@ fetch('/api/incidencias', {
 
 ![](/img/frontend/IncidenciaFiltro.png)
 
-### 6. Mejora y Mantenimiento
+# 🧠 Plantilla de Prompt Estructurado para IA (ChatGPT)
 
-- **Modularización**: separar `api.js` en servicios por entidad.
-- **Gestión de errores**: mostrar mensajes más amigables en frontend.
-- **Validación de formularios**: incluir validaciones HTML y JS.
+## 1. 🎭 Rol
+_Especifica el perfil profesional que debe simular la IA._
 
-📸 *Imagen sugerida*: Ejemplo de mensaje de error o validación en el formulario.
+**Ejemplo:**  
+Eres un técnico de sistemas especializado en redes Linux y automatización con Bash.
+
+---
+
+## 2. 🎯 Objetivo
+_Indica con claridad qué quieres que haga la IA._
+
+**Ejemplo:**  
+Necesito generar un script que monitorice los servicios del sistema y envíe una alerta si alguno deja de funcionar.
+
+---
+
+## 3. 🧱 Contexto
+_Describe el entorno, sistema o situación específica._
+
+**Ejemplo:**  
+Sistema operativo Debian 12. Servicios a monitorizar: apache2 y mysql. El sistema tiene instalado `mail` para notificaciones por correo.
+
+---
+
+## 4. 🧭 Requisitos / Restricciones
+_Detalla qué debe y qué no debe hacer la IA. Incluye herramientas permitidas, versiones, límites técnicos, etc._
+
+**Ejemplo:**
+- Usar solo comandos nativos de Bash
+- No instalar software adicional
+- Compatible con cron
+
+---
+
+## 5. 🧾 Formato de salida
+_Define cómo debe entregarte la respuesta: código, tabla, JSON, lista, etc._
+
+**Ejemplo:**
+- Script en Bash con comentarios explicativos
+- Instrucciones claras para ejecutarlo y añadirlo a cron
+
+---
+
+## 6. 📌 Ejemplo (opcional)
+_Si puedes, ofrece un modelo o plantilla a seguir. GPT aprende por imitación._
+
+**Ejemplo:**  
+Como este script:
+```bash
+if ! pgrep apache2; then  
+  systemctl restart apache2  
+  echo "Apache reiniciado" | mail -s "Alerta Apache" admin@midominio.com  
+fi
